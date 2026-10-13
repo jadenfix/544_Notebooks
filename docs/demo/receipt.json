@@ -1,0 +1,36 @@
+{
+  "captured_source_commit": "70a96a45ed947287722fe0ab7d58ca46c2819a60",
+  "captured_source_tree": "e9aeab1812e2a918727674b486fbcafb05c52cdf",
+  "dataset_sha256": "1700c62815a437d4875ec07db4c10beb9614df6998a57084853582b0bf395577",
+  "media": {
+    "ads-did-demo.gif": {
+      "bytes": 649639,
+      "sha256": "b626440184754c534cb050028b7698d23c21cc4a0fce9e16a36505834f4048cd"
+    },
+    "ads-did-demo.mp4": {
+      "bytes": 226267,
+      "sha256": "8dd38d57f7f4d154928a8d452c8c96a69d98e73bcf3ec512788f878ff87cae7f"
+    },
+    "ads-did-poster.png": {
+      "bytes": 47297,
+      "sha256": "4f22aca0fbcf6756022d4a950d20559ad7aa9d1193623bae7d5767a9f23f13e0"
+    }
+  },
+  "result": {
+    "ci_lower": -0.0174748127677928,
+    "ci_upper": 0.004301109079162943,
+    "control_dmas": 142,
+    "control_log_change": -0.03939962868098962,
+    "dmas": 210,
+    "log_effect": -0.006586851844314928,
+    "revenue_ratio": 0.9934347939124213,
+    "revenue_ratio_ci_lower": 0.9826769862668101,
+    "revenue_ratio_ci_upper": 1.004310372124513,
+    "rows": 23730,
+    "standard_error": 0.0055550821038152405,
+    "treated_dmas": 68,
+    "treated_log_change": -0.045986480525304546
+  },
+  "scope": "bundled historical classroom dataset; no live advertising platform or business-effect claim",
+  "workflow": "paid-search difference-in-differences"
+}
