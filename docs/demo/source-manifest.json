@@ -1,0 +1,16 @@
+{
+  "captured_source_commit": "70a96a45ed947287722fe0ab7d58ca46c2819a60",
+  "captured_source_tree": "e9aeab1812e2a918727674b486fbcafb05c52cdf",
+  "inputs": {
+    ".github/workflows/reproducible-demo.yml": "5a23ed7705cde75a9b6412e5a178e4344ccffbd4",
+    "08_Returns_to_ads/PaidSearch.csv": "f76ed9bd1b91de06b247d4ba6ca85079d83b81c6",
+    "08_Returns_to_ads/ebay_did.ipynb": "b78e53867b80d22dbc9de9b29903b7b57d35b83a",
+    "econ544/__init__.py": "cafacbdf4b80c37e699eddc57e8efcb59abcb64d",
+    "econ544/ads_did.py": "0ddbbc113370efe5f080806e1e10345cada0ce04",
+    "requirements-demo.txt": "bca9917d873ba39b564d9156bf628e5a372e0604",
+    "scripts/render_demo.py": "f3af36d4fc1d3210dcf1d63aee845c48b8ac51c7",
+    "scripts/run_ads_did.py": "6af73a015c98c4efcbe4b0b144ed90497f88797d",
+    "scripts/verify_demo.py": "7781a9a9b49df07fc3963299214a153f6f07d3d5",
+    "tests/test_ads_did.py": "9138f58c3fd69698f28ba8e8d443066d8d7a904d"
+  }
+}
