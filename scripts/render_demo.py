@@ -9,15 +9,18 @@ import json
 import math
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
 from econ544.ads_did import analyze_paid_search, load_paid_search
 
 
-ROOT = Path(__file__).resolve().parents[1]
 DEMO_DIR = ROOT / "docs" / "demo"
 WIDTH, HEIGHT = 1280, 720
 FPS = 10

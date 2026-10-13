@@ -72,7 +72,6 @@ class PaidSearchDidTests(unittest.TestCase):
                 text=True,
                 capture_output=True,
                 check=True,
-                env={"PYTHONPATH": str(ROOT)},
             )
             payload = json.loads(receipt.read_text(encoding="utf-8"))
             self.assertEqual(payload, json.loads(completed.stdout))
@@ -90,7 +89,6 @@ class PaidSearchDidTests(unittest.TestCase):
                 cwd=ROOT,
                 text=True,
                 capture_output=True,
-                env={"PYTHONPATH": str(ROOT)},
             )
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("must not overwrite", completed.stderr)

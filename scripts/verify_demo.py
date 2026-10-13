@@ -6,14 +6,17 @@ from __future__ import annotations
 import hashlib
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 from PIL import Image
 
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
 from econ544.ads_did import analyze_paid_search, load_paid_search
 
 
-ROOT = Path(__file__).resolve().parents[1]
 DEMO_DIR = ROOT / "docs" / "demo"
 
 
