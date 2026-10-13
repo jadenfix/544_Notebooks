@@ -6,6 +6,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
+import tempfile
 from pathlib import Path
 
 from econ544.ads_did import analyze_paid_search, load_paid_search
@@ -35,9 +37,24 @@ def main() -> int:
         if aliases_source:
             parser.error("output must not overwrite the input dataset")
         destination.parent.mkdir(parents=True, exist_ok=True)
-        staging = destination.with_name(f".{destination.name}.tmp")
-        staging.write_text(rendered, encoding="utf-8")
-        staging.replace(destination)
+        staging: Path | None = None
+        try:
+            with tempfile.NamedTemporaryFile(
+                "w",
+                encoding="utf-8",
+                dir=destination.parent,
+                prefix=f".{destination.name}.",
+                suffix=".tmp",
+                delete=False,
+            ) as handle:
+                staging = Path(handle.name)
+                handle.write(rendered)
+                handle.flush()
+                os.fsync(handle.fileno())
+            staging.replace(destination)
+        finally:
+            if staging is not None:
+                staging.unlink(missing_ok=True)
     print(rendered, end="")
     return 0
 

@@ -64,6 +64,8 @@ class PaidSearchDidTests(unittest.TestCase):
         original = DEFAULT_DATASET.read_bytes()
         with tempfile.TemporaryDirectory() as directory:
             receipt = Path(directory) / "receipt.json"
+            unrelated_staging = receipt.with_name(".receipt.json.tmp")
+            unrelated_staging.write_text("preserve me", encoding="utf-8")
             completed = subprocess.run(
                 [sys.executable, str(ROOT / "scripts/run_ads_did.py"), "--output", str(receipt)],
                 cwd="/",
@@ -75,6 +77,7 @@ class PaidSearchDidTests(unittest.TestCase):
             payload = json.loads(receipt.read_text(encoding="utf-8"))
             self.assertEqual(payload, json.loads(completed.stdout))
             self.assertEqual(payload["result"]["dmas"], 210)
+            self.assertEqual(unrelated_staging.read_text(encoding="utf-8"), "preserve me")
         self.assertEqual(DEFAULT_DATASET.read_bytes(), original)
 
     def test_cli_rejects_hardlink_output_alias(self) -> None:
