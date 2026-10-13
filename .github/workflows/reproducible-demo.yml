@@ -23,5 +23,7 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: python scripts/run_ads_did.py --output /tmp/ads-did-receipt.json
       - if: matrix.python-version == '3.12'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - if: matrix.python-version == '3.12'
         run: python scripts/verify_demo.py
       - run: test -z "$(git status --short)"
